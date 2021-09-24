@@ -9,6 +9,7 @@ db.user = require("./user.model");
 db.role = require("./role.model");
 db.slots = require("./slots.model");
 
+
 db.ROLES = ["user", "admin", "moderator"];
 
 module.exports = db;
