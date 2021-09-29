@@ -1,8 +1,56 @@
+const moment = require('moment')
 const db = require("../models");
 const Slots = db.slots;
 
-exports.getAvailableSlots = (req, res) => {
-    Slots.findOne({ bookingStatus: 0 })
+exports.createSlot = (req, res) => {
+    let date = req.body.date;
+    let startTime = req.body.startTime;
+    let endTime = req.body.endTime;
+
+    Slots.create({
+        mentor: req.body.mentor,
+        date: date,
+        startTime: startTime,
+        endTime: endTime,
+        bookingStatus: 0
+    })
+        .then(slot => {
+            res.send({
+                message: "Slot created successfully!!",
+                data: slot
+            });
+        })
+        .catch(err => {
+            res.send({
+                message: "Error",
+                data: err
+            })
+        })
+}
+
+exports.getAllAvailableSlots = (req, res) => {
+    let date = new Date();
+    console.log(date);
+    let startTime = date.getHours();
+    startTime.toString();
+
+    Slots.find({ bookingStatus: 0, startTime: { "$gt": startTime } })
+        .then(slots => {
+            res.send({
+                message: "Success",
+                data: slots
+            });
+        })
+        .catch(err => {
+            res.send({
+                message: "Error",
+                data: err
+            })
+        })
+}
+
+exports.getSlots = (req, res) => {
+    Slots.find({ bookingStatus: 0 })
         .then(slots => {
             res.send({
                 message: "Success",
@@ -47,3 +95,4 @@ exports.bookSlot = (req, res) => {
             })
         })
 }
+

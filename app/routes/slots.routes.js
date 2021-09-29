@@ -11,5 +11,6 @@ module.exports = function (app) {
     });
 
     app.post("/api/slots/book", authJwt.verifyToken, controller.bookSlot);
-    app.get("/api/slots/available", authJwt.verifyToken, controller.getAvailableSlots);
+    app.get("/api/slots/available", controller.getAllAvailableSlots);
+    app.post("/api/slots/create", controller.createSlot);
 }
