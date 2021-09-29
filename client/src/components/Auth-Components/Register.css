@@ -1,6 +1,17 @@
 .Register {
+	height: 100vh;
+	width: available;
+	background-color: #161517;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
 	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.Form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 10px;
+	color: aliceblue;
 }

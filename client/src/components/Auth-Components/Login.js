@@ -3,6 +3,8 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 
+import { Link } from "react-router-dom";
+
 import AuthService from "../../services/auth.service";
 // import "https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css";
 import "./Login.css";
@@ -109,12 +111,9 @@ const Login = (props) => {
 				</div>
 
 				<div className='form-group Form'>
-					<button className='btn btn-primary btn-block' disabled={loading}>
-						{loading && (
-							<span className='spinner-border spinner-border-sm'></span>
-						)}
-						<span>Signup</span>
-					</button>
+					<Link to='/register'>
+						New here ? <i>Signup </i>
+					</Link>
 				</div>
 
 				{message && (
