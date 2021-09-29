@@ -20,21 +20,8 @@ const TextContainer = ({ users }) => {
 						<h2>
 							{users.map(({ name }) => (
 								<div key={name} className='activeItem'>
-									{/* {name} */}
-									{/* <img alt='Online Icon' src={onlineIcon} />{" "} */}
-									<DropdownButton
-										as={ButtonGroup}
-										title={name}
-										id='bg-vertical-dropdown-1'
-										onSelect={(eventKey) => setStatus("Booked")}
-									>
-										<Dropdown.Item eventKey='1'>
-											Monday 11 am - {status}
-										</Dropdown.Item>
-										<Dropdown.Item eventKey='2'>
-											Monday 1 pm - {status}
-										</Dropdown.Item>
-									</DropdownButton>
+									{name}
+									<img alt='Online Icon' src={onlineIcon} />{" "}
 								</div>
 							))}
 						</h2>
